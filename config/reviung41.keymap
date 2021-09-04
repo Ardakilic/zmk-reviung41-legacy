@@ -66,6 +66,7 @@
 // Custom shortcuts specific to Turkish layout
 #define _CURLY_OPEN RA(N7)
 #define _CURLY_CLOSE RA(N0)
+#define _AT_SIGN RA(Q)
 #define _SQUARE_OPEN RA(N8)
 #define _SQUARE_CLOSE RA(N9)
 #define _DOLLAR_SIGN RA(N4)
@@ -97,15 +98,15 @@
 
                 default_layer {
 // -------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |   BKSP    |
-// |NPDESC|  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  Ş  |    İ      |
-// |SftCps|  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  Ö  |  Ç  |  .  |LCTRL(RET) |
-//                         |LGUI|.| LWR | SPC | RSE  | ALT |
+// |Npd/ESC|  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |   BKSP  |
+// |Sft/Cps|  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  Ş  |    İ    |
+// |LCtlTab|  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  Ö  |  Ç  |  .  | LCtlEnt |
+//                         |LGUI/$| LWR/, | SPC* | RSE/"  | ALT/@ |
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &lt _NUMPAD ESC &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &mt LSHFT CLCK &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &mt LCTRL RET
-                        &mt LGUI FSLH  &lt _LOWER BSLH &lt _SPACE SPACE &lt _RAISE NON_US_BACKSLASH &mt LALT FSLH
+   &lt _NUMPAD ESC  &kp Q  &kp W  &kp E  &kp R  &kp T           &kp Y  &kp U  &kp I  &kp O  &kp P  &kp BSPC
+   &mt LSHFT CLCK  &kp A  &kp S  &kp D  &kp F  &kp G            &kp H  &kp J  &kp K  &kp L  &kp SEMI  &kp SQT
+   &mt LCTRL TAB  &kp Z  &kp X  &kp C  &kp V  &kp B             &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH  &mt LCTRL RET
+        &mt LGUI _DOLLAR_SIGN  &lt _LOWER BSLH    &lt _SPACE SPACE    &lt _RAISE NON_US_BACKSLASH  &mt LALT _AT_SIGN
                         >;
                 };
 
@@ -114,12 +115,12 @@
 // |  >  |  !  |  '  |  ^  |  +  |  %  |   |  &  |  /  |  (  |  )  |  =  |   BKSP    |
 // | F1  | F2  | F3  | F4  | F5  | F6  |   | "$" |  ?  |  _  |  Ğ  |  Ü  |     -     |
 // | F7  | F8  | F9  | F10 | F11 | F12 |   | "[" | "]" | "{" | "}" |  <  |    ">"    |
-//                       | F13  | F14 | RET | ADJ |     |
+//                       | F13  |    |  RET  | ADJ | F14 |
                         bindings = <
-   &kp TILDE &kp EXCL  &kp AT &kp HASH &kp DLLR &kp PRCNT      &kp CARET &kp AMPS &kp ASTERISK &kp LPAR  &kp RPAR  &kp BSPC
-   &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6                   &kp _DOLLAR_SIGN  &kp UNDERSCORE &kp PLUS    &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp EQUAL
-   &kp F7 &kp F8   &kp F9    &kp F10 &kp F11 &kp F12          &kp _SQUARE_OPEN  &kp _SQUARE_CLOSE  &kp _CURLY_OPEN &kp _CURLY_CLOSE &kp GRAVE &mt LSHFT GRAVE
-                                 &kp F13      &kp F14  &kp RET        &mo _ADJUST       &trans
+   &kp TILDE  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT           &kp CARET  &kp AMPS  &kp ASTERISK  &kp LPAR  &kp RPAR  &kp BSPC
+   &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6                       &kp _DOLLAR_SIGN  &kp UNDERSCORE &kp PLUS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp EQUAL
+   &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12                    &kp _SQUARE_OPEN  &kp _SQUARE_CLOSE  &kp _CURLY_OPEN  &kp _CURLY_CLOSE  &kp GRAVE  &mt LSHFT GRAVE
+                        &kp F13  &trans    &kp RET    &mo _ADJUST  &kp F14 /* TODO */
                         >;
                 };
 
@@ -130,10 +131,10 @@
 // | F7  | F8  | F9  | F10 | F11 | F12 |   |  '  |  #  |  "  | "~" | "`" |  <>| |
 //                       |     | ADJ | BKSP |    |     |
                         bindings = <
-   &kp TAB &kp N1  &kp N2  &kp N3  &kp N4 &kp N5                 &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp BSPC
-   &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6                    &trans    &kp MINUS    &kp EQUAL    &kp _BACKSLASH    &kp _VERTICAL_PIPE    &kp BACKSLASH
-   &kp F7 &kp F8   &kp F9    &kp F10 &kp F11 &kp F12            &kp AT_SIGN    &kp _NUMBER_SIGN    &kp NON_US_BSLH    &kp _TILDE   &kp _BACKTICK   &kp GRAVE
-                                &trans  &mo _ADJUST   &kp BSPC        &trans      &trans
+   &kp TAB  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5              &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &kp BSPC
+   &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6     /*Todo ?*/&trans  &kp MINUS  &kp EQUAL  &kp _BACKSLASH  &kp _VERTICAL_PIPE  &kp BACKSLASH
+   &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12            &kp AT_SIGN  &kp _NUMBER_SIGN  &kp NON_US_BSLH  &kp _TILDE  &kp _BACKTICK  &kp GRAVE
+                        /* TODO */ &trans  &mo _ADJUST    &kp BSPC    &trans    &trans /* TODO */
                         >;
                 };
 
@@ -143,12 +144,12 @@
 // |     |CMD+1|CMD+2|CMD+3|CMD+4|CMD+5|   | CMD+6 |CMD+7|CMD+8|CMD+9|CMD+0|LckOSX|
 // |     |Brgt▼|Brgt▲|     |     |     |   | Left  |Down | Up  |Right|     |      |
 // |     |     |     |     |     |     |   |PlayPse|     |     |     |     |      |
-//                   | Vol-    | Prev |     | Next  |  Vol+   |
+//                  |  Vol-    | Prev |     | Next  |  Vol+   |
                         bindings = <
-   &trans  &kp LG(N1) &kp LG(N2)  &kp LG(N3) &kp LG(N4) &kp LG(N5)              &kp LG(N6)  &kp LG(N7)  &kp LG(N8)  &kp LG(N9)  &kp LG(N0)  &kp _LOCKSCREEN
-   &trans  &kp C_BRI_INC  &kp C_BRI_DEC &trans &trans &trans                    &kp LEFT    &kp DOWN    &kp UP    &kp RIGHT    &trans    &trans
-   &trans  &trans  &trans  &trans  &trans  &trans                               &kp C_PLAY_PAUSE    &trans    &trans    &trans   &trans   &trans
-                                        &kp C_VOL_DN  &kp C_PREV   &trans    &kp C_NEXT     &kp C_VOL_UP 
+   &trans  &kp LG(N1)  &kp LG(N2)  &kp LG(N3)  &kp LG(N4)  &kp LG(N5)           &kp LG(N6)  &kp LG(N7)  &kp LG(N8)  &kp LG(N9)  &kp LG(N0)  &kp _LOCKSCREEN
+   &trans  &kp C_BRI_INC  &kp C_BRI_DEC &trans &trans &trans                    &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &trans
+   &trans  &trans  &trans  &trans  &trans  &trans                               &kp C_PLAY_PAUSE  &trans  &trans  &trans  &trans  &trans
+                        &kp C_VOL_DN  &kp C_PREV    &trans    &kp C_NEXT     &kp C_VOL_UP /* TODO arrow keys instead of media keys ?*/
                         >;
                 };
 
@@ -160,10 +161,10 @@
 // |     |     |     |     |     |     |   |  ,  |Num1 |Num2 |Num3 |  .  |  /   |
 //                   |      |     | Enter |  Num0   |  Num0   |
                         bindings = <
-   &none  &none  &none  &none &none  &none                      &kp LG(N6)  &kp LG(N7)  &kp LG(N8)  &kp LG(N9)  &kp LG(N0)  &kp _LOCKSCREEN
-   &none  &none  &none  &none &none  &none                      &kp LEFT    &kp DOWN    &kp UP    &kp RIGHT    &trans    &trans
-   &none  &none  &none  &none &none  &none                      &kp C_PLAY_PAUSE    &trans    &trans    &trans   &trans   &trans
-                        &kp C_VOL_DN  &kp C_PREV   &kp RET    &kp ENTER     &kp C_VOL_UP 
+   &none  &none  &none  &none  &none  &none                     &kp KP_EQUAL  &kp N7  &kp N8  &kp N9  &kp KP_MINUS  &kp BSPC
+   &none  &none  &none  &none  &none  &none                     &kp SLASH  &kp N4  &kp N5  &kp N6  &kp KP_PLUS  &kp KP_PLUS
+   &none  &none  &none  &none  &none  &none                     &kp KP_DOT &kp N1  &kp N2  &kp N3  &kp SLASH  &kp KP_SLASH
+                                &none  &none    &kp RET    &kp N0  &kp N0 
                         >;
                 };
 
